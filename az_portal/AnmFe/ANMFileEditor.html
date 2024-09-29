@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link href="css/AnmFe-main.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>anm Editor</title>
+</head>
+<body>
+    <header>
+        <ul id="header-menu">
+            <li title="ファイルをインポートします" onclick="filesAdd()">インポート</li>
+            <li title="ファイルをエクスポートします" onclick="writeData()">エクスポート</li>
+            <li id="swt-ui" title="表示モードの切り替え" onclick="switchData()">ソース解説</li>
+            <li title="選択した範囲の行を上下反転します" onclick="slideData(0)">全反転</li>
+            <li title="選択した範囲のうち、一番上の行を下に移動します" onclick="slideData(1)">下移動</li>
+            <li title="選択した範囲のうち、一番下の行を上に移動します" onclick="slideData(2)">上移動</li>
+        </ul>
+        <input type="file" accept=".anm" id="add-file" style="display:none" onchange="readFile(this)"></input>
+    </header>
+    <!--テキスト-->
+    <main>
+        <div id="row-panel"><span>[EOF]</span></div>
+        <!--擬似レンダラーとテキストエリア-->
+        <textarea id="cursor-area" spellcheck="false"></textarea>
+        <div id="render-area" spellcheck="false"></div>
+    </main>
+    <script src="js/encoding.js"></script>
+    <script src="js/AnmFe-main.js"></script>
+</body>
+</html>

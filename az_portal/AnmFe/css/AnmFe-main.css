@@ -1,0 +1,107 @@
+@charset "UTF-8";
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    background-color: #222222;
+
+}
+
+li,ul,ol {list-style-type: none;}
+
+/*ヘッダー&フッター*/
+header {
+    position: fixed;
+    height: 23px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem; font-weight: bold;
+    letter-spacing: 1px; line-height: 1.5;
+    background-color: #222222;
+}
+
+header {
+    top: 0; z-index: 99;
+    ul {display: flex; margin: 0; padding: 0;}
+    li {
+        padding: 4px 5px 0 5px;
+        user-select: none;
+        text-wrap: nowrap;
+        overflow: hidden;
+        cursor: pointer;
+        &:hover {background-color: #494949;}
+        &:nth-child(4):active {color: #ff0040;}
+        &:nth-child(5):active {color: #ff0040;}
+        &:nth-child(6):active {color: #ff0040;}
+        &.omit {display: none;}
+    }
+}
+
+#swt-ui.act {color: red;}
+
+main {
+    display: flex;
+    width: 100%;
+    margin: 23px 0 0;
+}
+
+/*ロウ*/
+#row-panel {
+    position: absolute;
+    user-select: none;
+    width: 60px;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem; font-weight: bold;
+    letter-spacing: 1px; line-height: 1.5;
+    text-align: center;
+    color: #fff;
+    background-color: #222222;
+    &::-webkit-scrollbar {display: none;}
+}
+
+/*テキストエリア*/
+#render-area,#cursor-area {
+    position: absolute;
+    left: 60px;
+    margin: 0; padding: 0;
+    caret-color: #ff0000;
+    white-space: nowrap;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem; font-weight: bold;
+    letter-spacing: 1px; line-height: 1.5;
+    background-color: transparent;
+    border: 0;
+}
+#render-area:focus,#cursor-area:focus {outline: 0;}
+
+#render-area {
+    z-index: 1;
+    color: #d1f5ff; pointer-events: none;
+    &.act {pointer-events: auto;}
+    span.info:hover {background-color: #ff000080;}
+    &::-webkit-scrollbar{display: none;}
+}
+
+#cursor-area {
+    z-index: 2;
+    width: 0; height: 0;
+    overflow: hidden;
+    color: transparent;
+    resize: none;
+    &.slc {pointer-events: none; user-select: none;}
+    &.push {color: #d1f5ff;}
+    &::selection {background-color: #3da4e0a1;}
+    &::-webkit-scrollbar {display: none;}
+}
+
+/*color-pallet*/
+.cpp {color: #f37ccf;}/*pink-配列・条件式*/
+.cpo {color: #ff9e43;}/*orange-括弧・クォーテーション*/
+.cpb {color: #4f86fc;}/*blue-大括弧・テーブル・ロカールスコープ*/
+.cpy {color: #fcdc4f;}/*yello-特殊・注意*/
+.cpa {color: #4fd9fc;}/*aqua-一部メソッド*/
+.cpu {color: #9e7cfc;}/*purple-オブジェクト*/
+.cpg {color: #41ce4d;}/*green-コメント*/
+.cpr {color: #ff0e0e;}/*red-影響力が大きい単語・警告*/

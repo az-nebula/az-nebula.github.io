@@ -1,0 +1,114 @@
+@charset "UTF-8";
+#mov-lineup {
+    display: flex;
+    flex-wrap: wrap;
+    place-content: space-evenly space-evenly;
+    margin: 0 auto; padding:50px 0 100px;
+    width: 1200px;
+}
+
+/*動画コンテナデザイン*/
+.mov-con-wrap {
+    margin: 15px 0;
+    width: 760px; height: 155px;
+    background-color: #f7f8eb;
+    transition: .2s;
+    user-select: none;
+    &.filter {display: none;}
+    .mov-con {
+        display: flex;
+        box-shadow: 2px 2px 3px #949494;
+        div {
+            margin: 0; padding: 10px;
+            overflow: hidden;
+            div {
+                margin: 0; padding: 0;
+                width: 240px; height: 135px;
+                img {
+                    margin: 0; padding: 0;
+                    width: 240px; height: 135px;
+                    pointer-events: none;
+                    transition: .5s;
+                }
+            }
+            &:hover div img,&:active div img {transform: scale(1.05);}
+            &:hover,&:active {background-color: #ffe48b;}
+        }
+        p {
+            margin: 0; padding: 10px 10px;
+            width: 480px; height: 135px;
+            background-color: #474747;
+            pointer-events: none;
+            h2 {margin: 0; padding: 0;}
+            span {
+                display: flex;
+
+                flex-wrap: wrap;
+                a {
+                    margin: 0 5px 5px; padding: 0;
+                    line-height: 1.0;
+                    color: #4998ff;
+                    cursor: pointer;
+                    pointer-events: all;
+                    &.act {color: #ff2f2f;}
+                }
+                ul {
+                    margin: 0 0 5px; padding: 0;
+                    display: flex;
+                    li {height: 18.4px;}
+                }
+            }
+            .tube {
+                margin: 0; padding: 3px 6px 2px;
+                font-size: 0.7rem;
+                color: #f3f3f3;
+                background-color: #ff4d4d;
+                border-radius: 1px;
+                box-shadow: 1px 1px 2px #949494;
+            }
+            .nico {
+                font-size: 0.3rem;
+                padding: 9.4px 9.285px 2px;
+                color: #363636;
+                background-color:  #f3f3f3;
+                border-radius: 1px;
+                box-shadow: 1px 1px 2px #949494;
+                &::after,&::before {
+                    position: absolute;
+                    content: "●";
+                    font-size: 0.4rem;
+                }
+                &::after {transform: translate(-11px,-5px);}
+                &::before {transform: translate(7px,-8px);}
+            }
+        }
+        div:hover + p span a div.tube,div:active + p span a div.tube {animation: iconAnm .5s ease;}
+        div:hover + p span a div.nico,div:active + p span a div.nico {animation: iconAnm .5s ease .1s;}
+    }
+}
+
+@keyframes iconAnm {
+    from {transform: translateY(0); box-shadow: 1px 1px 2px #949494;}
+    50% {transform: translateY(-3px); box-shadow: 1px 4px 2px #949494;}
+    80% {transform: translateY(0); box-shadow: 1px 1px 2px #949494;}
+    90% {transform: translateY(-1px); box-shadow: 1px 2px 2px #949494;}
+    to {transform: translateY(0); box-shadow: 1px 1px 2px #949494;}
+
+}
+
+#cast-list {
+    position: fixed;
+    left: -200px; top: 40%;
+    padding: 15px 13px 15px 7px;
+    background-color: #363636;
+    user-select: none;
+    box-shadow: 2px 2px 3px #949494;
+    transition: .4s;
+    &.fixed {transform: translateX(200px);}
+    li {
+        text-align: right;
+        cursor: pointer;
+        line-height: 1.0;
+        a:active {color: #ff2f2f;}
+    }
+}
